@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h1>Sample App</h1>
+        <div >
+            <span>OAuth single sign in Facebook
+            </span>
+         
+        </div>
+        <div>
+            <div class="authenticated">
+                <a class="btn" href="/login">Login</a>
+            </div>
+            <div class="authenticated">
+                Logged in as :<span id="user">
+                    
+                </span>
+                <div>
+                    <button onclick="logout()" class="btn">LogOut</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            $.get("/user", function(data) {
+    $("#user").html(data.userAuthentication.details.name);
+    $(".unauthenticated").hide()
+    $(".authenticated").show()
+  });
+  var logout = function() {
+    $.post("/logout", function() {
+      $("#user").html('');
+      $(".unauthenticated").show();
+      $(".authenticated").hide();
+    });
+    return true;
+  }
+        </script>
+            
+    </body>
+</html>

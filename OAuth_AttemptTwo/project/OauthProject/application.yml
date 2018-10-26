@@ -1,0 +1,14 @@
+## YAML Template.
+---
+security:
+  oauth2:
+    client:
+      clientId: 549459132159791
+      clientSecret: dced3d21f67bdfe544feeafaa285527f
+      accessTokenUri: https://graph.facebook.com/oauth/access_token
+      userAuthorizationUri: https://www.facebook.com/dialog/oauth
+      tokenName: oauth_token
+      authenticationScheme: query
+      clientAuthenticationScheme: form
+    resource:
+      userInfoUri: https:
